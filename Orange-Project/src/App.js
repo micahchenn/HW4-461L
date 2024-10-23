@@ -1,5 +1,5 @@
 import React from 'react';
-import Projects from './CombinedProjects';
+import Projects from './Projects';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 

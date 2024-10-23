@@ -2,7 +2,7 @@
 import React from 'react';
 import Project from './Project';
 
-const CombinedProjects = () => {
+const Projects = () => {
   const projects = [
     { name: 'Project 1', users: ['User 1', 'User 2'] },
     { name: 'Project 2', users: ['User 3', 'User 4'] },
@@ -18,4 +18,4 @@ const CombinedProjects = () => {
   );
 };
 
-export default CombinedProjects;
+export default Projects;

@@ -17,8 +17,12 @@ const Project = ({ name, users, isJoined, onJoinLeave }) => {
       let newQuantity = prevState.quantity;
   
       if (action === 'checkedIn') {
-        newQuantity = Math.min(100, newQuantity + quantity); // Check-in capped at 100
-        setDialogMessage(`${quantity} items checked in successfully.`);
+        // Check-in should be limited by the difference to reach 100
+        const availableToCheckIn = 100 - newQuantity; // Calculate how many can be checked in
+        const checkInQuantity = Math.min(availableToCheckIn, quantity); // Limit to the available capacity
+  
+        newQuantity = newQuantity + checkInQuantity; // Update the quantity
+        setDialogMessage(`${checkInQuantity} items checked in successfully.`);
       } else if (action === 'checkedOut') {
         // Ensure that the quantity to check out does not exceed the available quantity
         if (quantity > newQuantity) {
@@ -43,6 +47,7 @@ const Project = ({ name, users, isJoined, onJoinLeave }) => {
       setOpenDialog(true);
     }
   };
+  
 
   return (
     <div className={`project ${isJoined ? 'joined' : ''}`}>
