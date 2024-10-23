@@ -1,0 +1,63 @@
+.project {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f4f4f4; /* Light grey background */
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  max-width: 900px; /* Adjusted max-width for wider layout */
+  margin: auto;
+}
+
+.project h2 {
+  color: #c65d2f; /* University of Texas burnt orange */
+}
+
+.project p {
+  font-size: 18px;
+}
+
+.hwSetsContainer {
+  display: flex;
+  justify-content: space-between; /* Spread out HWSet sections */
+  width: 100%; /* Full width for the container */
+  margin-top: 20px; /* Space above the container */
+}
+
+.hwSet {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 20px; /* Add spacing between HWSet sections */
+  background-color: #ffffff; /* White background for each HWSet */
+  border: 1px solid #ddd; /* Light grey border */
+  border-radius: 8px;
+  padding: 15px;
+  flex: 1; /* Allow HWSet to grow and fill space equally */
+  min-width: 200px; /* Minimum width for HWSet sections */
+}
+
+.hwSet h4 {
+  margin: 0; /* Remove default margin */
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-around; /* Spread buttons horizontally */
+  margin-top: 10px; /* Space above buttons */
+  width: 100%; /* Full width for buttons */
+}
+
+.buttons Button {
+  flex: 1; /* Make buttons take equal width */
+  margin: 0 5px; /* Add some spacing between buttons */
+}
+
+button {
+  transition: background-color 0.3s; /* Smooth background color transition */
+}
+
+button:hover {
+  background-color: #ff8f00; /* Darker orange on hover */
+}
