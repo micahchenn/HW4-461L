@@ -15,18 +15,26 @@ const Project = ({ name, users, isJoined, onJoinLeave }) => {
   const handleCheckInOut = (setFunc, action, quantity) => {
     setFunc(prevState => {
       let newQuantity = prevState.quantity;
+  
       if (action === 'checkedIn') {
         newQuantity = Math.min(100, newQuantity + quantity); // Check-in capped at 100
         setDialogMessage(`${quantity} items checked in successfully.`);
-      } else {
+      } else if (action === 'checkedOut') {
+        // Ensure that the quantity to check out does not exceed the available quantity
+        if (quantity > newQuantity) {
+          setDialogMessage(`Cannot check out more than available. Only ${newQuantity} items available.`);
+          setOpenDialog(true); // Show the dialog with the error message
+          return prevState; // No change to state if the check-out fails
+        }
         newQuantity = Math.max(0, newQuantity - quantity); // Check-out capped at 0
         setDialogMessage(`${quantity} items checked out successfully.`);
       }
+  
       setOpenDialog(true); // Show the dialog 
       return { ...prevState, quantity: newQuantity };
     });
   };
-
+  
   const handleCustomCheckInOut = (setFunc, action, quantity) => {
     if (!isNaN(quantity) && quantity > 0) {
       handleCheckInOut(setFunc, action, quantity);
